@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 4ed3f162fe311e7459c1b2bb1d4bd938
+timeCreated: 1441844289
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - goldPanel: {instanceID: 0}
+  - goldCountText: {instanceID: 0}
+  - silverPanel: {instanceID: 0}
+  - silverCountText: {instanceID: 0}
+  - LevelWin: {instanceID: 0}
+  - winText: {instanceID: 0}
+  - levelNum: {instanceID: 0}
+  - tip: {instanceID: 0}
+  - exit: {instanceID: 0}
+  - exitCylinder: {instanceID: 0}
+  - rolling: {instanceID: 0}
+  - pickup: {instanceID: 0}
+  - explosion: {instanceID: 0}
+  - goldBurst: {fileID: 400770, guid: 95243f53cee976f40b0529f1634f4eac, type: 2}
+  - silverBurst: {fileID: 400770, guid: 00f04619e4da9264ba20be1aa9b914e1, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,67 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class PauseMenu : MonoBehaviour {
+
+	public GameObject pauseMenu;
+	public bool isPaused;
+	public Font pauseFont;
+
+
+	void Awake () {
+		pauseMenu.SetActive (false);
+		Time.timeScale = 1;
+		AudioListener.volume = 1;
+		isPaused = false;
+	}
+	
+
+	void Update () {
+	
+		if (Input.GetKeyDown(KeyCode.Escape)){
+			//checks to see if game is paused
+			//if not paused, pause and bring up menu
+			if (isPaused == false){
+				isPaused = true;
+				Debug.Log ("isPaused = " + isPaused);
+				pauseMenu.SetActive (true);
+				AudioListener.volume = 0;
+				Time.timeScale = 0;
+			//if paused, escape closes menu and starts up game again
+			} else if (isPaused == true){
+				isPaused = false;
+				Debug.Log ("isPaused = " + isPaused);
+				pauseMenu.SetActive (false);
+				AudioListener.volume = 1;
+				Time.timeScale = 1;
+			}
+
+		}
+
+
+		if (Input.GetKeyDown(KeyCode.Space) && isPaused == true){
+			Application.LoadLevel ("_Main Menu");
+		}
+
+		if (Input.GetKeyDown(KeyCode.R) && isPaused == true){
+			int i = Application.loadedLevel;
+			Application.LoadLevel(i);
+		}
+	}
+
+	void onGUI (){
+
+		GUI.skin.box.font = pauseFont;
+		GUI.skin.button.font = pauseFont;
+
+		if (isPaused == true){
+			GUI.Box(new Rect(Screen.width /2 - 100,Screen.height /2 - 100,250,200), "Paused!");
+
+
+
+		} else if (isPaused == false){
+			pauseMenu.SetActive (false);
+		}
+
+	}
+}

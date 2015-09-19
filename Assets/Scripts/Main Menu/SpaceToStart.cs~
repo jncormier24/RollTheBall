@@ -1,0 +1,37 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.IO;
+using UnityEngine.UI;
+
+public class SpaceToStart : MonoBehaviour {
+
+	private Text words;
+	public GameObject levelSelectText;
+
+
+	// Use this for initialization
+	void Start () {
+		words = gameObject.GetComponent<Text> ();
+		if (File.Exists (Application.persistentDataPath + "/playerInfo.dat")) {
+			words.text = "Press SPACE to Continue";
+			levelSelectText.SetActive (true);
+		} else {
+			words.text = "Press SPACE to Start";
+			levelSelectText.SetActive (false);
+		}
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			Application.Quit ();		
+		}
+		if (Input.GetKeyDown (KeyCode.L) && File.Exists (Application.persistentDataPath + "/playerInfo.dat")) {
+			Application.LoadLevel ("zzLevelSelect");
+		}
+		if (Input.GetKeyDown (KeyCode.M) && File.Exists (Application.persistentDataPath + "/playerInfo.dat")) {
+			GameControl.control.maxLevel = 20;
+		}
+	}
+}

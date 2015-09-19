@@ -1,0 +1,36 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class ChaseEnemy : MonoBehaviour {
+	private NavMeshAgent Internal_Nav_Mesh_Agent;
+	private GameObject Player;
+	private PlayerController playerScript;
+	//private bool jumped = false;
+	//private Rigidbody rb;
+
+
+	// Use this for initialization
+	void Start () {
+		Internal_Nav_Mesh_Agent = GetComponent<NavMeshAgent>();
+		Player = GameObject.FindGameObjectWithTag("Player");
+		playerScript = Player.GetComponent<PlayerController>();
+		//rb = GetComponent<Rigidbody>();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (playerScript.countGold > 0 || playerScript.countSilver > 0){
+			if (Player != null){
+				Internal_Nav_Mesh_Agent.SetDestination (Player.transform.position);
+			} //else {
+			//	Internal_Nav_Mesh_Agent.ResetPath();
+			//	if (jumped == false){
+			//		Internal_Nav_Mesh_Agent.velocity = new Vector3 (0, 20, 0);
+			//		jumped = true;
+			//	}
+			//}
+		}
+
+
+	}
+}
